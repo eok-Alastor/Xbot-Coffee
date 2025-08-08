@@ -1,0 +1,47 @@
+---
+// src/components/ServiceSection.astro
+const services = [
+  {
+    title: "精准选址赋能",
+    description:
+      "利用大数据分析人流、消费习惯，科学评估点位价值，确保您的咖啡站从第一天起就占据盈利高地。",
+    icon: '<svg class="w-8 h-8 text-brand-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>',
+  },
+  // ... 其他服务项 ...
+];
+---
+
+<style>
+  .feature-card {
+    /* ... */
+  }
+  .feature-card:hover {
+    /* ... */
+  }
+</style>
+<section id="services" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-brand-brown-dark text-4xl font-bold">全方位运营服务</h2>
+      <p class="text-brand-brown-text mt-4 text-lg">
+        我们如何让xbot的价值最大化？obubu的服务为硬件注入灵魂。
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        services.map((service) => (
+          <div class="feature-card p-8 rounded-lg text-center">
+            <div
+              class="mb-4 bg-brand-bg-light rounded-full p-3 inline-block"
+              set:html={service.icon}
+            />
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              {service.title}
+            </h3>
+            <p class="text-gray-600">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

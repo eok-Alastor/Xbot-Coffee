@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import IndexLayout from "../layouts/Index-Layout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import ProductSection from "../components/ProductSection.astro";
+import ServiceSection from "../components/ServiceSection.astro";
+import AdvantagesSection from "../components/AdvantagesSection.astro";
+import FutureSection from "../components/FutureSection.astro";
+import ScenariosSection from "../components/ScenariosSection.astro";
+import AboutUsSection from "../components/AboutUsSection.astro";
+import CoffeeAcademySection from "../components/CoffeeAcademySection.astro";
+import PartnerSection from "../components/PartnerSection.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<IndexLayout title="obubu - xbot 智能咖啡机器人 | AI驱动的智能咖啡新零售">
+  <HeroSection />
+  <ProductSection />
+  <ServiceSection />
+  <AdvantagesSection />
+  <FutureSection />
+  <ScenariosSection />
+  <AboutUsSection />
+  <CoffeeAcademySection />
+  <PartnerSection client:load />
+</IndexLayout>
