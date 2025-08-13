@@ -1,0 +1,94 @@
+---
+// src/components/ProductSection.astro
+import xbotS from "../assets/xbot-products/xbot-s.png";
+import xbotLite from "../assets/xbot-products/xbot-lite.png";
+import xbotPro from "../assets/xbot-products/xbot-pro-max.png";
+
+const products = [
+  {
+    name: "Xbot S 系列",
+    tagline: "大师级拉花艺术站",
+    description:
+      "业界首创双臂协同拉花，像素级复刻世界冠军咖啡师技艺，提供极致的视觉与味觉盛宴。",
+    image: xbotS.src,
+    isFeatured: false,
+  },
+  {
+    name: "Xbot Lite 系列",
+    tagline: "新质生产力效率之王",
+    description:
+      "双臂双杯，效率翻倍。80秒即可同时出品两杯高品质咖啡，轻松应对高峰时段，是坪效最优选。",
+    image: xbotLite.src,
+    isFeatured: true,
+  },
+  {
+    name: "Xbot S Pro Max",
+    tagline: "全功能智能商业亭",
+    description:
+      "集拉花、打印、多口味于一体的旗舰工作站。封闭式亭体设计，完美适配室内外各类商业场景。",
+    image: xbotPro.src,
+    isFeatured: false,
+  },
+];
+---
+
+<style>
+  .feature-card {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    background-color: #ffffff;
+    border: 1px solid #f0e9e4;
+  }
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.08),
+      0 8px 10px -6px rgb(0 0 0 / 0.08);
+  }
+</style>
+<section id="products" class="py-20 bg-brand-bg-light">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Xbot 智能咖啡站</h2>
+      <p class="section-subtitle mt-4">
+        荣获iF金奖、红点至尊奖等多项国际设计大奖，是科技与咖啡美学的结晶。
+      </p>
+    </div>
+    <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-10">
+      {
+        products.map((product) => (
+          <div
+            class:list={[
+              "rounded-lg shadow-lg overflow-hidden feature-card",
+              {
+                "transform lg:scale-110 border-4 border-brand-brown":
+                  product.isFeatured,
+              },
+            ]}
+          >
+            {product.isFeatured && (
+              <div class="p-2 bg-brand-brown text-white text-center font-bold">
+                效能之选
+              </div>
+            )}
+            <img
+              src={product.image}
+              alt={product.name}
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2 text-gray-800">
+                {product.name}
+              </h3>
+              <p class="text-brand-brown font-semibold mb-4">
+                {product.tagline}
+              </p>
+              <p class="text-gray-600 mb-4">{product.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

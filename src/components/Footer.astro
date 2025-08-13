@@ -1,0 +1,56 @@
+---
+// src/components/Footer.astro
+import logoImage from "../assets/logo.png";
+import logoWord from "../assets/logo-word.png";
+---
+
+<footer class="bg-gray-900 text-white">
+  <div class="container mx-auto px-6 py-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <a href="/" class="flex items-center gap-6">
+          <img
+            src={logoImage.src}
+            alt="Obubu Logo"
+            class="h-[72px] hover:opacity-80 transition-opacity"
+          />
+          <img
+            src={logoWord.src}
+            alt="Xbot Logo"
+            class="h-9 hover:opacity-80 transition-opacity"
+          />
+        </a>
+        <p class="text-gray-400">
+          用科技链接品质生活，让每一杯好咖啡都触手可及。
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#products" class="text-gray-400 hover:text-white"
+              >我的产品</a
+            >
+          </li>
+          <li>
+            <a href="#services" class="text-gray-400 hover:text-white"
+              >我的服务</a
+            >
+          </li>
+          <!-- ... 其他链接 ... -->
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+        <p class="text-gray-400">合作热线: 18602059290</p>
+        <p class="text-gray-400">电子邮箱:</p>
+        <p class="text-gray-400">公司地址: 广州市海珠区小洲村艺术村5街5号</p>
+      </div>
+    </div>
+    <div
+      class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm"
+    >
+      <p>&copy; 2025 墒链（广州）智能科技有限公司. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

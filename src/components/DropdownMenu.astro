@@ -1,0 +1,58 @@
+---
+// src/components/DropdownMenu.astro
+---
+
+<div class="relative" id="dropdown-container">
+  <button
+    id="dropdown-trigger"
+    class="text-gray-600 hover:text-brand-brown focus:outline-none flex items-center"
+  >
+    更多
+    <svg
+      class="w-4 h-4 ml-1"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      ><path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path></svg
+    >
+  </button>
+  <div
+    id="dropdown-panel"
+    class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-xl z-20 opacity-0 invisible scale-95 transform transition-all duration-200 ease-out origin-top-right"
+  >
+    <div class="py-1">
+      <a
+        href="#about-us"
+        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-brown"
+        >关于我们</a
+      >
+      <a
+        href="#coffee-academy"
+        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-brown"
+        >咖啡学院</a
+      >
+    </div>
+  </div>
+</div>
+<script>
+  const container = document.getElementById("dropdown-container");
+  const panel = document.getElementById("dropdown-panel");
+  let leaveTimeout;
+  if (container && panel) {
+    container.addEventListener("mouseenter", () => {
+      clearTimeout(leaveTimeout);
+      panel.classList.remove("opacity-0", "invisible", "scale-95");
+      panel.classList.add("opacity-100", "visible", "scale-100");
+    });
+    container.addEventListener("mouseleave", () => {
+      leaveTimeout = setTimeout(() => {
+        panel.classList.remove("opacity-100", "visible", "scale-100");
+        panel.classList.add("opacity-0", "invisible", "scale-95");
+      }, 300);
+    });
+  }
+</script>

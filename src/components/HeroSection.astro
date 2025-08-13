@@ -1,0 +1,24 @@
+---
+// src/components/HeroSection.astro
+import heroImage from "../assets/bg1.png";
+---
+
+<section
+  id="home"
+  class="h-screen flex items-center justify-center text-white"
+  style={`background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroImage.src}) no-repeat center center; background-size: cover;`}
+>
+  <div class="text-center px-4">
+    <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight">
+      全托管式智能咖啡运营服务
+    </h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+      您只需提供场地，我们为您包办一切，轻松共享咖啡事业红利。
+    </p>
+    <a
+      href="#partner"
+      class="bg-white text-brand-brown font-bold py-3 px-8 rounded-md text-lg hover:bg-gray-200 transition"
+      >了解合作模式</a
+    >
+  </div>
+</section>
