@@ -1,0 +1,59 @@
+---
+// 这是一个独立的、自包含的全屏菜单组件
+import logoImage from "../assets/logo.png";
+import logoWord from "../assets/logo-word.png";
+
+const allLinks = [
+  { name: "首页", path: "/" },
+  { name: "我的产品", path: "/products" },
+  { name: "我的服务", path: "/services" },
+  { name: "我们的优势", path: "/advantages" },
+  { name: "咖啡小店2.0", path: "/coffee-academy" },
+  { name: "合作案例", path: "/scenarios" },
+  { name: "关于我们", path: "/about-us" },
+];
+const partnerLink = { name: "成为合伙人", path: "/partner" };
+---
+
+<!-- 
+  全屏菜单容器
+  - fixed inset-0: 占满全屏
+  - z-50: 确保在最顶层
+  - opacity-0 invisible: 默认隐藏，通过 JS 控制显示
+-->
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 bg-brand-brown text-white p-6 flex-col opacity-0 invisible transition-opacity duration-300 ease-in-out z-50"
+>
+  <!-- 菜单头部: Logo 和关闭按钮 -->
+  <div class="flex justify-between items-center mb-16">
+    <a href="/" class="flex items-center gap-3">
+      <img src={logoImage.src} alt="Obubu Logo" class="h-10" />
+      <img src={logoWord.src} alt="Obubu Logo Word" class="h-7" />
+    </a>
+    <button id="mobile-menu-close-button" aria-label="Close menu" class="p-2">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        ><path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path></svg
+      >
+    </button>
+  </div>
+
+  <!-- 菜单链接列表 -->
+  <nav class="flex flex-col space-y-6 text-2xl font-medium">
+    {
+      allLinks.map((link, index) => (
+        <a
+          href={link.path}
+          class:list={["pb-2", { "border-b border-white/30": index === 0 }]}
+        >
+          {link.name}
+        </a>
+      ))
+    }
+    <a href={partnerLink.path} class="pt-6">{partnerLink.name}</a>
+  </nav>
+</div>
