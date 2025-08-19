@@ -1,80 +1,86 @@
 ---
-import ProductsLayout from "../layouts/Products-Layout.astro";
-// 注意：我们这里不再需要 Product-Card.astro，因为样式更简单，直接写在页面里
-// 如果卡片逻辑复杂，可以创建一个新的 AppleStyleCard.astro 组件
+import MainLayout from "../layouts/MainLayout.astro";
+import Product from "../components/Product.astro";
 
-import xbotS_Img from "../assets/xbot-products/Xbot-S.png";
-// ... 导入其他产品图片 ...
+// 导入产品图片
+// import xbotS from '../assets/products/xbot-s.png';
+// import merchandiseCup from '../assets/products/merchandise-cup.png';
 
-// 定义产品数据
-const mainProducts = [
-  { name: "Xbot-S", imageSrc: xbotS_Img.src, link: "/products/xbot-s" },
-  // 假设还有其他产品...
-  // { name: 'Xbot-P', imageSrc: xbotP_Img.src, link: '/products/xbot-p' },
-  // { name: '咖啡豆', imageSrc: coffeeBean_Img.src, link: '/products/beans' },
+const merchandise = [
+  {
+    name: "obubu经典马克杯",
+    image: "https://placehold.co/400x400/ffffff/3e2723?text=obubu马克杯",
+  },
+  {
+    name: "品牌Logo T恤",
+    image: "https://placehold.co/400x400/ffffff/3e2723?text=obubu T恤",
+  },
+  {
+    name: "手冲分享壶",
+    image: "https://placehold.co/400x400/ffffff/3e2723?text=分享壶",
+  },
+  {
+    name: "帆布环保袋",
+    image: "https://placehold.co/400x400/ffffff/3e2723?text=帆布袋",
+  },
 ];
 ---
 
-<ProductsLayout title="商店">
-  <div class="container mx-auto px-6 py-16 md:py-24">
-    <!-- 1. 标题区 -->
-    <div class="text-center mb-16 md:mb-20">
-      <h1
-        class="text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight tracking-tighter"
-      >
-        <span class="text-neutral-600">这个商店，产品都称心，</span><br
-        />体验更如意。
-      </h1>
-    </div>
+<MainLayout title="我的产品">
+  <Product />
 
-    <!-- 2. 商品网格布局 -->
-    <div
-      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-12"
-    >
-      {
-        mainProducts.map((product) => (
-          <a
-            href={product.link}
-            class="flex flex-col items-center text-center group"
-          >
-            <div class="w-full aspect-square bg-white rounded-xl flex items-center justify-center p-4 transition-transform group-hover:scale-105">
-              <img
-                src={product.imageSrc}
-                alt={product.name}
-                class="max-h-full max-w-full object-contain"
-              />
-            </div>
-            <span class="mt-4 text-sm font-semibold text-black">
-              {product.name}
-            </span>
-          </a>
-        ))
-      }
-    </div>
-
-    <!-- 3. 最新上架区块 -->
-    <div class="mt-24 md:mt-32 border-t border-neutral-200 pt-16 md:pt-24">
-      <h2
-        class="text-3xl sm:text-4xl font-bold text-black text-center tracking-tighter mb-12"
-      >
-        最新上架。<span class="text-neutral-600">不容错过。</span>
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- 示例大卡片 -->
-        <div
-          class="bg-white rounded-2xl p-8 text-left aspect-video flex flex-col justify-between"
-        >
-          <div>
-            <p class="font-semibold text-orange-500">限时优惠</p>
-            <h3 class="text-2xl font-bold mt-2">Xbot 全系列</h3>
-            <p class="mt-2 text-neutral-600">以旧换新，享最高补贴。</p>
-          </div>
-          <a href="#" class="text-blue-600 font-semibold text-sm self-start"
-            >进一步了解 →</a
-          >
+  <!-- 这部分内容来自 Vue 原型的 Products 页面 -->
+  <section id="drip-coffee" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="section-title">精品挂耳咖啡</h2>
+        <p class="section-subtitle mt-4">
+          随时随地，享受一杯大师级的现冲风味。
+        </p>
+      </div>
+      <div class="lg:flex items-center gap-12 feature-card p-8 rounded-lg">
+        <div class="lg:w-1/2">
+          <img
+            src="https://placehold.co/800x600/f5f5f5/3e2723?text=精品挂耳咖啡系列"
+            alt="精品挂耳咖啡"
+            class="rounded-lg shadow-lg w-full"
+          />
         </div>
-        <!-- ... 更多大卡片 ... -->
+        <div class="lg:w-1/2 mt-8 lg:mt-0">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">obubu 精选系列</h3>
+          <p class="text-gray-600 mb-6">
+            我们遍寻全球著名产区，为您带来风味各异的精品挂耳咖啡...
+          </p>
+          <ul class="space-y-2 text-gray-700">
+            <li>- 耶加雪菲：柑橘与花香的明亮协奏</li>
+            <li>- 曼特宁：浓郁醇厚的可可与香料气息</li>
+            <li>- 云南小粒：坚果与红糖的甜感交织</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</ProductsLayout>
+  </section>
+
+  <section id="merchandise" class="py-20 bg-brand-bg-light">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Obubu 周边文创</h2>
+        <p class="section-subtitle mt-4">将咖啡美学融入您的日常生活。</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {
+          merchandise.map((item) => (
+            <div class="text-center feature-card p-4 rounded-lg">
+              <img
+                src={item.image}
+                alt={item.name}
+                class="w-full h-48 object-cover rounded-md mb-4 bg-white"
+              />
+              <h4 class="font-semibold text-lg text-gray-800">{item.name}</h4>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</MainLayout>

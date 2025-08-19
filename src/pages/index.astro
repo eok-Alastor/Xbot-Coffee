@@ -1,25 +1,17 @@
 ---
 // src/pages/index.astro
-import IndexLayout from "../layouts/Index-Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
-import ProductSection from "../components/ProductSection.astro";
-import ServiceSection from "../components/ServiceSection.astro";
-import AdvantagesSection from "../components/AdvantagesSection.astro";
-import FutureSection from "../components/FutureSection.astro";
-import ScenariosSection from "../components/ScenariosSection.astro";
-import AboutUsSection from "../components/AboutUsSection.astro";
-import CoffeeAcademySection from "../components/CoffeeAcademySection.astro";
-import PartnerSection from "../components/PartnerSection.astro";
+import Product from "../components/Product.astro";
+import Service from "../components/Service.astro";
+import AboutUs from "../components/AboutUs.astro";
+import CoffeeAcademy from "../components/CoffeeAcademy.astro";
 ---
 
-<IndexLayout title="Obubu - xbot 智能咖啡机器人 | AI驱动的智能咖啡新零售">
+<MainLayout title="Obubu - xbot 智能咖啡机器人 | AI驱动的智能咖啡新零售">
   <HeroSection />
-  <ProductSection />
-  <ServiceSection />
-  <AdvantagesSection />
-  <FutureSection />
-  <ScenariosSection />
-  <AboutUsSection />
-  <CoffeeAcademySection />
-  <PartnerSection />
-</IndexLayout>
+  <Product />
+  <Service />
+  <AboutUs />
+  <CoffeeAcademy />
+</MainLayout>

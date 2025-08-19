@@ -1,5 +1,8 @@
 ---
-const contactEmail = "partner@obubu.tech"; // 联系邮箱放在这里
+// src/components/PartnerSection.astro
+const contactEmail = "partner@obubu.tech"; // 联系邮箱
+const surveyLink =
+  "https://bcnd2iyqshzb.feishu.cn/share/base/form/shrcnax6QIk4qbuvze2F7ivNuCc"; // 第三方问卷链接
 ---
 
 <section id="partner" class="py-20 bg-gray-800 text-white">
@@ -13,6 +16,7 @@ const contactEmail = "partner@obubu.tech"; // 联系邮箱放在这里
         </p>
       </div>
 
+      <!-- 右侧：联系卡片 -->
       <div class="lg:w-1/2 max-w-md mx-auto mt-10 lg:mt-0">
         <div
           id="contact-card"
@@ -22,8 +26,8 @@ const contactEmail = "partner@obubu.tech"; // 联系邮箱放在这里
             即刻洽谈，共创未来
           </h3>
 
-          <!-- 邮箱联系方式 -->
-          <div class="mb-6">
+          <!-- 邮箱联系方式 (保持不变) -->
+          <div class="mb-4">
             <label class="block text-gray-700 font-medium mb-2"
               >合作咨询邮箱</label
             >
@@ -48,21 +52,41 @@ const contactEmail = "partner@obubu.tech"; // 联系邮箱放在这里
             </p>
           </div>
 
-          <!-- 一键发送邮件按钮 -->
+          <!-- 主要操作按钮：一键发送邮件 (保持不变) -->
           <a
             href={`mailto:${contactEmail}?subject=关于 obubu xbot 合作咨询`}
-            class="block w-full text-center bg-brand-brown text-white font-bold
-              py-3 px-6 rounded-md hover:opacity-90 transition"
+            class="block w-full text-center bg-brand-brown text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition"
           >
             发送邮件
           </a>
 
-          <!-- (可选) 其他联系方式 -->
+          <!-- 分隔线 -->
+          <div class="my-4 flex items-center">
+            <span class="flex-grow border-t border-gray-200"></span>
+            <span class="mx-4 text-xs text-gray-400">或</span>
+            <span class="flex-grow border-t border-gray-200"></span>
+          </div>
+
+          <!-- 次要操作按钮：跳转到第三方问卷 -->
+          <a
+            href={surveyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full text-center bg-brand-brown text-white font-bold py-3 px-6 rounded-md hover:opacity-90 transition"
+          >
+            在线填写合作问卷
+          </a>
+
+          <div class="my-4 flex items-center">
+            <span class="flex-grow border-t border-gray-200"></span>
+            <span class="mx-4 text-xs text-gray-400">或</span>
+            <span class="flex-grow border-t border-gray-200"></span>
+          </div>
+
+          <!-- (可选) 其他联系方式 (保持不变) -->
           <div class="mt-6 text-center text-sm text-gray-500">
             <p>
-              或致电: <span class="font-semibold text-gray-700"
-                >18602059290</span
-              >
+              致电: <span class="font-semibold text-gray-700">18602059290</span>
             </p>
           </div>
         </div>
@@ -71,7 +95,7 @@ const contactEmail = "partner@obubu.tech"; // 联系邮箱放在这里
   </div>
 </section>
 
-<!-- 用于处理“复制邮箱”交互的脚本 -->
+<!-- 复制邮箱的脚本 (保持不变) -->
 <script>
   const copyButton = document.getElementById("copy-button");
   const emailAddress = document.getElementById("email-address");
@@ -82,17 +106,13 @@ const contactEmail = "partner@obubu.tech"; // 联系邮箱放在这里
       navigator.clipboard
         .writeText(emailAddress.textContent || "")
         .then(() => {
-          // 复制成功
           copyFeedback.textContent = "已复制到剪贴板！";
           copyFeedback.classList.remove("opacity-0");
-
-          // 2秒后自动隐藏提示
           setTimeout(() => {
             copyFeedback.classList.add("opacity-0");
           }, 2000);
         })
         .catch((err) => {
-          // 复制失败 (很少见)
           copyFeedback.textContent = "复制失败，请手动复制。";
           copyFeedback.classList.remove("opacity-0", "text-green-600");
           copyFeedback.classList.add("text-red-600");

@@ -1,0 +1,67 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const services = [
+  {
+    title: "精准选址赋能",
+    description:
+      "我们利用独家的大数据模型，结合城市热力图、消费人群画像、周边业态竞争分析等多维度信息，为您精准定位黄金点位。我们不做盲目的扩张，只做有数据支撑的决策，确保您的智能咖啡站从开业第一天起就拥有强大的盈利潜力。",
+    image: "https://placehold.co/800x600/d7ccc8/3e2723?text=精准选址赋能",
+  },
+  {
+    title: "全链条供应链",
+    description:
+      "从SCA认证的精品咖啡豆全球直采，到通过HACCP认证的仓储物流，再到智能化的物料配送与补给系统，obubu为您打造了一条稳定、高效、高品质的全链条供应链。您无需为任何原料操心，我们确保每一杯咖啡的出品都无可挑剔。",
+    image: "https://placehold.co/800x600/d7ccc8/3e2723?text=全链条供应链",
+  },
+  {
+    title: "专业在地运维",
+    description:
+      "我们在全国核心城市建立了专业的在地运维团队。通过SaaS后台的设备健康度预警系统，我们能主动发现并解决潜在问题。无论是日常清洁、设备保养还是紧急故障处理，我们的运维官都能在2小时内快速响应，确保您的设备7x24小时不间断运营。",
+    image: "https://placehold.co/800x600/d7ccc8/3e2723?text=专业在地运维",
+  },
+  {
+    title: "数据驱动营销",
+    description:
+      "Obubu不仅仅是一个运营平台，更是一个强大的营销引擎。我们会根据后台的销售数据和用户行为分析，为您量身定制线上线下营销活动，如会员储值、消费赠券、节日特饮等，持续拉新、促活、提升复购率，让您的生意持续火爆。",
+    image: "https://placehold.co/800x600/d7ccc8/3e2723?text=数据驱动营销",
+  },
+];
+---
+
+<MainLayout title="我的服务">
+  <section class="py-20 bg-brand-bg-light">
+    <div class="container mx-auto px-6 space-y-16">
+      <div class="text-center pt-10">
+        <h1 class="section-title">我的服务</h1>
+        <p class="section-subtitle mt-4">
+          我们提供的不只是一台机器，而是一套完整的、让您后顾无忧的盈利解决方案。
+        </p>
+      </div>
+      {
+        services.map((service, index) => (
+          <div
+            class:list={[
+              "lg:flex items-center gap-12",
+              { "lg:flex-row-reverse": index % 2 !== 0 },
+            ]}
+          >
+            <div class="lg:w-1/2">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="rounded-lg shadow-2xl w-full"
+              />
+            </div>
+            <div class="lg:w-1/2 mt-8 lg:mt-0">
+              <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                {service.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>

@@ -26,22 +26,24 @@
   >
     <div class="py-1">
       <a
-        href="#about-us"
+        href="/#about-us"
         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-brown"
-        >关于我们</a
       >
+        关于我们
+      </a>
       <a
-        href="#coffee-academy"
+        href="/#coffee-academy"
         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-brown"
-        >咖啡学院</a
       >
+        咖啡学院
+      </a>
     </div>
   </div>
 </div>
 <script>
   const container = document.getElementById("dropdown-container");
   const panel = document.getElementById("dropdown-panel");
-  let leaveTimeout;
+  let leaveTimeout: number | undefined; // 明确指定类型
   if (container && panel) {
     container.addEventListener("mouseenter", () => {
       clearTimeout(leaveTimeout);

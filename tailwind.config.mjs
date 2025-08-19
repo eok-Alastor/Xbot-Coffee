@@ -17,6 +17,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+        serif: ['Noto Serif SC', 'serif'],
       },
     },
   },
