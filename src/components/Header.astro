@@ -24,17 +24,17 @@ const mobileLinks = [
 
 <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40">
   <nav class="container mx-auto px-6 flex justify-between items-center h-20">
-    <!-- Logo 区域 (保持不变) -->
-    <a href="/" class="flex items-center gap-3">
-      <img src={logoImage.src} alt="Obubu Logo" class="h-10 md:h-12" />
+    <!-- Logo 区域 -->
+    <a href="/" class="flex items-center gap-6">
+      <img src={logoImage.src} alt="Obubu Logo" class="h-20 md:h-20" />
       <img
         src={logoWord.src}
         alt="Obubu Logo Word"
-        class="hidden sm:inline-block h-7 md:h-8"
+        class="sm:inline-block h-7 md:h-8"
       />
     </a>
 
-    <!-- 桌面端链接 (保持不变) -->
+    <!-- 桌面端链接 -->
     <div class="hidden md:flex items-center gap-8 text-base font-medium">
       {
         desktopLinks.map((link) => (
@@ -145,7 +145,7 @@ const mobileLinks = [
 
   openBtn?.addEventListener("click", openMenu);
   closeBtn?.addEventListener("click", closeMenu);
-  overlay?.addEventListener("click", closeMenu); // 点击遮罩层关闭
+  overlay?.addEventListener("click", closeMenu);
 
   drawer?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeMenu);
