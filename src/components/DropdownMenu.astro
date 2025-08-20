@@ -43,7 +43,7 @@
 <script>
   const container = document.getElementById("dropdown-container");
   const panel = document.getElementById("dropdown-panel");
-  let leaveTimeout: number | undefined; // 明确指定类型
+  let leaveTimeout: ReturnType<typeof setTimeout> | undefined;
   if (container && panel) {
     container.addEventListener("mouseenter", () => {
       clearTimeout(leaveTimeout);
