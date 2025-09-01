@@ -1,78 +1,102 @@
-<section id="scenarios" class="py-20 bg-brand-bg-light">
+---
+// 导入所有图片资源
+import BeiJing from "../assets/scenarios/beijing.png";
+import ChengDu from "../assets/scenarios/chengdu.png";
+import ChengDu2 from "../assets/scenarios/chengdu2.png";
+import GuangXi from "../assets/scenarios/guangxi.png";
+import Korea from "../assets/scenarios/korea.png";
+import ShangHai from "../assets/scenarios/shanghai.png";
+import TingYun from "../assets/scenarios/tingyun.png";
+import XiCheng from "../assets/scenarios/xicheng.png";
+
+const scenarios = [
+  {
+    src: BeiJing.src,
+    alt: "北京图书馆",
+    colSpan: "col-span-2",
+    rowSpan: "row-span-1",
+  },
+  {
+    src: ChengDu.src,
+    alt: "成都大运会",
+    colSpan: "col-span-1",
+    rowSpan: "row-span-1",
+  },
+  {
+    src: Korea.src,
+    alt: "韩国服务区",
+    colSpan: "col-span-1",
+    rowSpan: "row-span-1",
+  },
+  {
+    src: TingYun.src,
+    alt: "汀云美术馆",
+    colSpan: "col-span-2",
+    rowSpan: "row-span-2",
+  },
+  {
+    src: XiCheng.src,
+    alt: "西城政务中心",
+    colSpan: "col-span-1",
+    rowSpan: "row-span-2",
+  },
+  {
+    src: ShangHai.src,
+    alt: "上海联想",
+    colSpan: "col-span-2",
+    rowSpan: "row-span-1",
+  },
+  {
+    src: ChengDu2.src,
+    alt: "成都锦里",
+    colSpan: "col-span-1",
+    rowSpan: "row-span-1",
+  },
+  {
+    src: GuangXi.src,
+    alt: "广西象鼻山",
+    colSpan: "col-span-1",
+    rowSpan: "row-span-1",
+  },
+];
+---
+
+<section id="scenarios" class="py-20 bg-brand-bg-warm">
   <div class="container mx-auto px-6">
     <div class="text-center mb-12">
-      <h2 class="section-title text-brand-brown-dark text-4xl font-bold">
-        成功 <span class="text-brand-brown">合作案例</span>
-      </h2>
+      <h2 class="section-title">成功 合作案例</h2>
       <p class="section-subtitle mt-4">
         用事实和数据说话，我们的成功可以被复制。
       </p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x300/bcaaa4/ffffff?text=智慧办公"
-            alt="智慧办公场景"
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x700/bcaaa4/ffffff?text=高端商业"
-            alt="高端商业场景"
-          />
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x700/bcaaa4/ffffff?text=活力校园"
-            alt="活力校园场景"
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x300/bcaaa4/ffffff?text=便捷医疗"
-            alt="便捷医疗场景"
-          />
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x300/bcaaa4/ffffff?text=交通枢纽"
-            alt="交通枢纽场景"
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x700/bcaaa4/ffffff?text=国际展会"
-            alt="国际展会场景"
-          />
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x700/bcaaa4/ffffff?text=文旅景区"
-            alt="文旅景区场景"
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg shadow-md"
-            src="https://placehold.co/500x300/bcaaa4/ffffff?text=品牌门店"
-            alt="品牌门店场景"
-          />
-        </div>
-      </div>
+
+    <!-- 
+      ↓↓↓ 核心改动：使用单个 Grid 容器来实现复杂的画廊布局 ↓↓↓
+      - grid-cols-2 md:grid-cols-4: 在不同屏幕尺寸下定义总列数
+      - grid-flow-row-dense: 关键！让 grid 智能地填充空隙
+      - grid-auto-rows-[180px]: (可选) 可以给行一个基础高度
+    -->
+    <div
+      class="grid grid-cols-2 md:grid-cols-4 grid-flow-row-dense auto-rows-[200px] gap-4"
+    >
+      {
+        scenarios.map((image) => (
+          // 每个图片现在可以跨越多行或多列
+          <div
+            class:list={[
+              "overflow-hidden rounded-xl shadow-lg group",
+              image.colSpan,
+              image.rowSpan,
+            ]}
+          >
+            <img
+              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              src={image.src}
+              alt={image.alt}
+            />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

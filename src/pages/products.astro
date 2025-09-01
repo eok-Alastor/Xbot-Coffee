@@ -1,27 +1,30 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Product from "../components/Product.astro";
+import CoffeeBean from "../assets/coffee-bean.png";
+import Bag from "../assets/goods/bag.png";
+import TShirt from "../assets/goods/logoTshirt.png";
+import Cup from "../assets/goods/markcup.png";
+import Teapot from "../assets/goods/teapot.png";
 
 // 导入产品图片
-// import xbotS from '../assets/products/xbot-s.png';
-// import merchandiseCup from '../assets/products/merchandise-cup.png';
 
 const merchandise = [
   {
     name: "obubu经典马克杯",
-    image: "https://placehold.co/400x400/ffffff/3e2723?text=obubu马克杯",
+    image: Cup.src,
   },
   {
     name: "品牌Logo T恤",
-    image: "https://placehold.co/400x400/ffffff/3e2723?text=obubu T恤",
+    image: TShirt.src,
   },
   {
     name: "手冲分享壶",
-    image: "https://placehold.co/400x400/ffffff/3e2723?text=分享壶",
+    image: Teapot.src,
   },
   {
     name: "帆布环保袋",
-    image: "https://placehold.co/400x400/ffffff/3e2723?text=帆布袋",
+    image: Bag.src,
   },
 ];
 ---
@@ -41,7 +44,7 @@ const merchandise = [
       <div class="lg:flex items-center gap-12 feature-card p-8 rounded-lg">
         <div class="lg:w-1/2">
           <img
-            src="https://placehold.co/800x600/f5f5f5/3e2723?text=精品挂耳咖啡系列"
+            src={CoffeeBean.src}
             alt="精品挂耳咖啡"
             class="rounded-lg shadow-lg w-full"
           />
